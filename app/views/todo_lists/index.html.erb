@@ -4,8 +4,8 @@
   </h5>
   <%= link_to 'Nova lista', new_todo_list_path, class: 'btn btn-primary'%>
 </div>
-<div class='card-body'>
-  <ul clas='list-group'>
+<div class='card-body pl-0'>
+  <ul class='list-group'>
     <% @todo_lists.each do |todo_list| %>
       <% if todo_list.status == 'Lista finalizada' %>
         <%= link_to todo_list, class: 'text-decoration-none' do %>

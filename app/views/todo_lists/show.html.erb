@@ -46,7 +46,7 @@
     </div>
   <% end %>
 
-  <ul clas='list-group'>
+  <ul class='list-group'>
     <% @todo_list.todo_items.each do |todo_item| %>
       <% if todo_item.completed? %>
         <li class='list-group-item bg-light'>
@@ -59,10 +59,10 @@
               </div>
               <div class="col-2">
                 <div class='d-flex justify-content-behind'>
-                  <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+                  <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger m-2' do %>
                     <i class="bi bi-x-square"></i>
                   <% end %>
-                  <%= link_to '#', class: 'btn btn-dark', data: { reflex: 'click->TodoItem#mark_incomplete', id: todo_item.id } do %>
+                  <%= link_to '#', class: 'btn btn-dark m-2', data: { reflex: 'click->TodoItem#mark_incomplete', id: todo_item.id } do %>
                     <i class="bi bi-arrow-counterclockwise"></i>
                   <% end %>
                 </div>
@@ -81,10 +81,10 @@
               </div>
               <div class="col-2">
                 <div class='d-flex justify-content-behind'>
-                  <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+                  <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger m-2' do %>
                     <i class="bi bi-x-square"></i>
                   <% end %>
-                  <%= link_to '#', class: 'btn btn-info', data: { reflex: 'click->TodoItem#mark_complete', id: todo_item.id } do %>
+                  <%= link_to '#', class: 'btn btn-info m-2', data: { reflex: 'click->TodoItem#mark_complete', id: todo_item.id } do %>
                     <i class="bi bi-check2-square"></i>
                   <% end %>
                 </div>

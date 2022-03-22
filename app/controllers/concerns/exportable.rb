@@ -20,5 +20,3 @@ module Exportable
       disposition: 'attachment; filename=tarefas.csv'
   end
 end
-
-TodoItem.where(todo_list_id: 5)

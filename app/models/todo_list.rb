@@ -35,4 +35,6 @@ class TodoList < ApplicationRecord
       'primary'
     end
   end
+
+  scope :asc_order, -> { order(created_at: :asc) }
 end
