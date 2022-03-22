@@ -34,7 +34,7 @@
 
 <div class='card-body'>
   <div class="progress mb-4">
-    <div class="progress-bar bg-info" role="progressbar" style="width: <%= @todo_list.percent_complete %>%" aria-valuenow="<%= @todo_list.percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar bg-info" role="progressbar" style="width: <%= @todo_list.percent_complete %>%" aria-valuenow="<%= @todo_list.percent_complete %>" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Progresso em <%= @todo_list.percent_complete %> %"></div>
   </div>
 
   <%= form_with(model: [@todo_list, @todo_item]) do |f| %>
@@ -60,10 +60,10 @@
               <div class="col-2">
                 <div class='d-flex justify-content-behind'>
                   <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger m-2' do %>
-                    <i class="bi bi-x-square"></i>
+                    <i class="bi bi-x-square" data-toggle="tooltip" data-placement="top" title="Deletar tarefa"></i>
                   <% end %>
                   <%= link_to '#', class: 'btn btn-dark m-2', data: { reflex: 'click->TodoItem#mark_incomplete', id: todo_item.id } do %>
-                    <i class="bi bi-arrow-counterclockwise"></i>
+                    <i class="bi bi-arrow-counterclockwise" data-toggle="tooltip" data-placement="top" title="Refazer tarefa"></i>
                   <% end %>
                 </div>
               </div>
@@ -82,10 +82,10 @@
               <div class="col-2">
                 <div class='d-flex justify-content-behind'>
                   <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger m-2' do %>
-                    <i class="bi bi-x-square"></i>
+                    <i class="bi bi-x-square" data-toggle="tooltip" data-placement="top" title="Deletar tarefa"></i>
                   <% end %>
                   <%= link_to '#', class: 'btn btn-info m-2', data: { reflex: 'click->TodoItem#mark_complete', id: todo_item.id } do %>
-                    <i class="bi bi-check2-square"></i>
+                    <i class="bi bi-check2-square" data-toggle="tooltip" data-placement="top" title="Concluir tarefa"></i>
                   <% end %>
                 </div>
               </div>
@@ -96,3 +96,4 @@
     <% end %>
   </ul>
 </div>
+
