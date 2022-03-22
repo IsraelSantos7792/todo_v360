@@ -1,4 +1,5 @@
 class TodoItemsController < ApplicationController
+  include Exportable
   before_action :set_todo_list
   before_action :set_todo_item, only: [:show, :edit, :update, :destroy]
 

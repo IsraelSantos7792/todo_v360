@@ -20,7 +20,7 @@
           </button>
           <ul class="dropdown-menu">
             <li><a><%= link_to 'Editar', edit_todo_list_path(@todo_list), class: 'dropdown-item' %></a></li>
-            <li><a class="dropdown-item" href="#">Baixar CSV</a></li>
+            <li><a><%= link_to 'Exportar CSV', export_csv_todo_list_todo_items_path(@todo_list) , class: 'dropdown-item' %></a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a>
               <%= link_to 'Deletar Lista', todo_list_path, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'dropdown-item text-danger' %>
@@ -52,13 +52,13 @@
         <li class='list-group-item bg-light'>
           <div class="container">
             <div class="row">
-              <div class="col-9">
+              <div class="col-10">
                 <span class='text-muted'>
                 <%= todo_item.description %>
                 </span>
               </div>
-              <div class="col-3">
-                <div class='d-flex justify-content-between'>
+              <div class="col-2">
+                <div class='d-flex justify-content-behind'>
                   <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
                     <i class="bi bi-x-square"></i>
                   <% end %>
@@ -74,13 +74,13 @@
         <li class='list-group-item'>
           <div class="container">
             <div class="row">
-              <div class="col-9">
+              <div class="col-10">
                 <span>
                 <%= todo_item.description %>
                 </span>
               </div>
-              <div class="col-3">
-                <div class='d-flex justify-content-between'>
+              <div class="col-2">
+                <div class='d-flex justify-content-behind'>
                   <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
                     <i class="bi bi-x-square"></i>
                   <% end %>
@@ -96,6 +96,3 @@
     <% end %>
   </ul>
 </div>
-
-
-
