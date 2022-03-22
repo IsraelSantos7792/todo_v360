@@ -22,6 +22,7 @@ class TodoItemsController < ApplicationController
     if @todo_item.save
       redirect_to(@todo_item.todo_list, notice: 'Item adicionado com sucesso')
     else
+      flash.now[:alert] = @todo_item.errors.full_messages.to_sentence
       render action: 'new'
     end
   end
@@ -30,6 +31,7 @@ class TodoItemsController < ApplicationController
     if @todo_item.update(todo_item_params)
       redirect_to([@todo_item.todo_list, @todo_item], notice: 'Item atualizado com sucesso')
     else
+      flash.now[:alert] = @todo_item.errors.full_messages.to_sentence
       render action: 'edit'
     end
   end
@@ -48,7 +50,6 @@ class TodoItemsController < ApplicationController
   def set_todo_item
     @todo_item = @todo_list.todo_items.find(params[:id])
   end
-
 
   def todo_item_params
     params.require(:todo_item).permit(:description, :completed, :completed_at, :todo_list_id)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang='pt'>
   <head>
-    <title>Todo</title>
+    <title>Gerenciador de Tarefas</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <%= csrf_meta_tags %>
@@ -14,8 +14,13 @@
     <div class='container'>
       <div class='row'>
         <div class='col-md-10 col-lg-8 offset-md-1 offset-lg-2'>
-          <p id="notice"><%= notice %></p>
           <div class='card mt-5'>
+            <% flash.each do |  type, message |%>
+              <div class="alert alert-<%= type == 'alert' ? 'danger' : 'success' %> alert-dismissible fade show" role="alert">
+                <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            <% end %>
             <%= yield %>
           </div>
         </div>
