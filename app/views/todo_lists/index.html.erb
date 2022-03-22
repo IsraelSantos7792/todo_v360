@@ -1,16 +1,41 @@
 <div class='card-header d-flex justify-content-between'>
-  <span>
-    Todo Lists
-  </span>
-  <%= link_to 'New Todo List', new_todo_list_path, class: 'btn btn-primary btn-sm'%>
+  <h5 class='m-0 text-dark'>
+    Listas de Tarefas
+  </h5>
+  <%= link_to 'Nova lista', new_todo_list_path, class: 'bi bi-plus-circle btn btn-primary btn-sm'%>
+</div>
+<div class='card-body'>
+  <ul clas='list-group'>
+    <% @todo_lists.each do |todo_list| %>
+      <% if todo_list.status == 'Lista finalizada' %>
+        <%= link_to todo_list, class: 'text-decoration-none' do %>
+          <li class="list-group-item d-flex justify-content-between bg-secondary" style="--bs-bg-opacity: .1;">
+            <div>
+              <h6 class='m-0 text-dark'>
+                <b><%= todo_list.title %></b>
+                <span class="badge bg-<%= todo_list.badge_color %>"><%= todo_list.status %></span>
+              </h6>
+              <p class='text-secondary m-0'><small><%= todo_list.percent_complete %>% Completo (<%= todo_list.completed_items %>/<%= todo_list.total_items %> Itens)</small></p>
+            </div>
+          </li>
+        <% end%>
+      <% else %>
+        <%= link_to todo_list, class: 'text-decoration-none' do %>
+          <li class='list-group-item d-flex justify-content-between'>
+            <div>
+              <h6 class='m-0 text-dark'>
+                <b><%= todo_list.title %></b>
+                <span class="badge bg-<%= todo_list.badge_color %>"><%= todo_list.status %></span>
+              </h6>
+              <p class='text-secondary m-0'><small><%= todo_list.percent_complete %>% Completo (<%= todo_list.completed_items %>/<%= todo_list.total_items %> Itens)</small></p>
+            </div>
+          </li>
+        <% end%>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
 
-<ul clas='list-group'>
-  <% @todo_lists.each do |todo_list| %>
-    <li class='list-group-item'>
-      <%= link_to todo_list.title, todo_list %>
-    </li>
-  <% end %>
-</ul>
+
 
 

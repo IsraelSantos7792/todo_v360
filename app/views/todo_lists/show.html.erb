@@ -1,13 +1,24 @@
-<div class='card-header d-flex justify-content-between'>
-  <div>
-    <h5 class='m-1'>
-      <b><%= @todo_list.title %></b>
-      <span class="badge bg-<%= @todo_list.badge_color %>"><%= @todo_list.status %></span>
-    </h5>
-    <p class='text-secondary m-0'><small><%= @todo_list.percent_complete %>% Completo (<%= @todo_list.completed_items %>/<%= @todo_list.total_items %> Itens)</small></p>
-  </div>
-  <div>
-    <%= link_to 'editar', edit_todo_list_path(@todo_list), class: 'btn btn-secondary'%>
+<div class='card-header'>
+  <div class='row'>
+    <div class='col-1'>
+      <%= link_to todo_lists_path, class: 'btn btn-dark' do %>
+        <i class="bi bi-arrow-return-left"></i>
+      <%end%>
+    </div>
+    <div class='col-11'>
+      <div class='d-flex justify-content-between'>
+        <div>
+          <h5 class='m-0'>
+            <b><%= @todo_list.title %></b>
+            <span class="badge bg-<%= @todo_list.badge_color %>"><%= @todo_list.status %></span>
+          </h5>
+          <p class='text-secondary m-0'><small><%= @todo_list.percent_complete %>% Completo (<%= @todo_list.completed_items %>/<%= @todo_list.total_items %> Itens)</small></p>
+        </div>
+        <div>
+          <%= link_to 'editar', edit_todo_list_path(@todo_list), class: 'btn btn-secondary'%>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -18,7 +29,7 @@
 
   <%= form_with(model: [@todo_list, @todo_item]) do |f| %>
     <div class="input-group mb-4">
-      <%= f.text_field :description, class: 'form-control', placeholder: 'Adcione um item'%>
+      <%= f.text_field :description, class: 'form-control', placeholder: 'Adicione uma tarefa'%>
       <div class='input-group-append'>
         <%= f.submit "Adicionar", class: 'btn btn-primary input-group-btn' %>
       </div>
@@ -29,29 +40,50 @@
     <% @todo_list.todo_items.each do |todo_item| %>
       <% if todo_item.completed? %>
         <li class='list-group-item bg-light'>
-          <div class='d-flex justify-content-between'>
-            <span class='text-muted'>
-              <em><%= todo_item.description %></em>
-            </span>
-            <%= link_to '#', class: 'btn btn-dark', data: { reflex: 'click->TodoItem#mark_incomplete', id: todo_item.id } do %>
-              <i class='fas fa-times'></i>
-            <% end %>
+          <div class="container">
+            <div class="row">
+              <div class="col-9">
+                <span class='text-muted'>
+                <%= todo_item.description %>
+                </span>
+              </div>
+              <div class="col-3">
+                <div class='d-flex justify-content-between'>
+                  <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+                    <i class="bi bi-x-square"></i>
+                  <% end %>
+                  <%= link_to '#', class: 'btn btn-dark', data: { reflex: 'click->TodoItem#mark_incomplete', id: todo_item.id } do %>
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </li>
       <% else %>
         <li class='list-group-item'>
-          <div class='d-flex justify-content-between'>
-            <span>
-              <%= todo_item.description %>
-            </span>
-            <%= link_to '#', class: 'btn btn-info', data: { reflex: 'click->TodoItem#mark_complete', id: todo_item.id } do %>
-              <i class='fas fa-check'></i>
-            <% end %>
+          <div class="container">
+            <div class="row">
+              <div class="col-9">
+                <span>
+                <%= todo_item.description %>
+                </span>
+              </div>
+              <div class="col-3">
+                <div class='d-flex justify-content-between'>
+                  <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+                    <i class="bi bi-x-square"></i>
+                  <% end %>
+                  <%= link_to '#', class: 'btn btn-info', data: { reflex: 'click->TodoItem#mark_complete', id: todo_item.id } do %>
+                    <i class="bi bi-check2-square"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </li>
       <% end %>
     <% end %>
   </ul>
 </div>
-
 
