@@ -7,7 +7,7 @@ module Exportable
     headers = ['Descrição', 'Status', 'Id da lista', 'Criada em', 'Atualizada em']
 
     csv = CSV.generate(write_headers: true, headers: headers) do |row|
-      TodoItem.all.each do |item|
+      TodoItem.where(todo_list_id: @todo_list.id).each do |item|
       row << [ item.description,
                item.completed? ? 'Concluída' : 'Não Concluída',
                item.todo_list_id,
@@ -20,3 +20,5 @@ module Exportable
       disposition: 'attachment; filename=tarefas.csv'
   end
 end
+
+TodoItem.where(todo_list_id: 5)

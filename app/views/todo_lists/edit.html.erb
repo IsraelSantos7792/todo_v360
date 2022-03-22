@@ -20,7 +20,7 @@
   <%= form_with(model: @todo_list) do |f| %>
     <label for="exampleFormControlInput1" class="form-label">Título da Lista</label>
     <div class="input-group mb-4">
-      <%= f.text_field :title, class: 'form-control', placeholder:  @todo_list.title %>
+      <%= f.text_field :title, class: 'form-control', placeholder:  @todo_list.title, required: true, minlength: 3  %>
       <div class='input-group-append'>
         <%= f.submit "Atualizar", class: 'btn btn-primary input-group-btn' %>
       </div>
