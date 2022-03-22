@@ -1,8 +1,17 @@
-<div class='card-header d-flex justify-content-between'>
-  <h5 class='m-0 text-dark'>
-    Listas de Tarefas
-  </h5>
-  <%= link_to 'Nova lista', new_todo_list_path, class: 'btn btn-primary'%>
+<div class='card-header'>
+  <div class='row'>
+    <div class='col-9'>
+      <h4 class='m-0'>
+        Listas de Tarefas
+      </h4>
+    </div>
+    <div class='col-3'>
+      <div class='d-flex justify-content-between'>
+        <%= link_to 'Nova lista', new_todo_list_path, class: 'btn btn-primary'%>
+        <%= link_to 'Gráficos', graphics_index_path, class: 'btn btn-secondary'%>
+      </div>
+    </div>
+  </div>
 </div>
 <div class='card-body pl-0'>
   <ul class='list-group'>

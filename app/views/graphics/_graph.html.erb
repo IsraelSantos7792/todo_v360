@@ -1,0 +1,41 @@
+<ul class='list-group'>
+  <li class='list-group-item d-flex justify-content-center'>
+    <div class='row'>
+      <div class='col-6'>
+        <h4 class='m-0'>
+          Tarefas criados por dia e hora
+        </h4>
+      </div>
+      <div class="w-100"></div>
+      <div class='col-12'>
+        <%= column_chart TodoItem.group_by_hour_of_day(:created_at, format: "%l %P").count %>
+      </div>
+    </div>
+  </li>
+  <li class='list-group-item d-flex justify-content-center'>
+    <div class='row'>
+      <div class='col-6'>
+        <h4 class='m-0'>
+          Tarefas concluidas
+        </h4>
+      </div>
+      <div class="w-100"></div>
+      <div class='col-12'>
+        <%= pie_chart TodoItem.group(:completed).count %>
+      </div>
+    </div>
+  </li>
+  <li class='list-group-item d-flex justify-content-center'>
+    <div class='row'>
+      <div class='col-6'>
+        <h4 class='m-0'>
+          Listas criadas por data
+        </h4>
+      </div>
+      <div class="w-100"></div>
+      <div class='col-12'>
+        <%= line_chart TodoList.group_by_day(:created_at).count %>
+      </div>
+    </div>
+  </li>
+</ul>

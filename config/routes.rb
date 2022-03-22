@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'graphics/index'
   root 'todo_lists#index'
 
   resources :todo_lists do
