@@ -14,8 +14,18 @@
           </h5>
           <p class='text-secondary m-0'><small><%= @todo_list.percent_complete %>% Completo (<%= @todo_list.completed_items %>/<%= @todo_list.total_items %> Itens)</small></p>
         </div>
-        <div>
-          <%= link_to 'editar', edit_todo_list_path(@todo_list), class: 'btn btn-secondary'%>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Opções
+          </button>
+          <ul class="dropdown-menu">
+            <li><a><%= link_to 'Editar', edit_todo_list_path(@todo_list), class: 'dropdown-item' %></a></li>
+            <li><a class="dropdown-item" href="#">Baixar CSV</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a>
+              <%= link_to 'Deletar Lista', todo_list_path, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'dropdown-item text-danger' %>
+            </a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -86,4 +96,6 @@
     <% end %>
   </ul>
 </div>
+
+
 

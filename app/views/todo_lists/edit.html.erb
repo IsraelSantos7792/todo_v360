@@ -1,6 +1,29 @@
-<h1>Editing Todo List</h1>
-
-<%= render 'form', todo_list: @todo_list %>
-
-<%= link_to 'Show', @todo_list %> |
-<%= link_to 'Back', todo_lists_path %>
+<div class='card-header'>
+  <div class='row'>
+    <div class='col-1'>
+      <%= link_to todo_lists_path, class: 'btn btn-dark' do %>
+        <i class="bi bi-arrow-return-left"></i>
+      <%end%>
+    </div>
+    <div class='col-11'>
+      <div class='d-flex justify-content-between'>
+        <div>
+          <h5 class='m-0 text-dark'>
+            Editando a Lista <b><%= @todo_list.title %></b>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='card-body'>
+  <%= form_with(model: @todo_list) do |f| %>
+    <label for="exampleFormControlInput1" class="form-label">Título da Lista</label>
+    <div class="input-group mb-4">
+      <%= f.text_field :title, class: 'form-control', placeholder:  @todo_list.title %>
+      <div class='input-group-append'>
+        <%= f.submit "Atualizar", class: 'btn btn-primary input-group-btn' %>
+      </div>
+    </div>
+  <% end %>
+</div>

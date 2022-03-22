@@ -1,5 +1,5 @@
 class TodoList < ApplicationRecord
-  has_many :todo_items
+  has_many :todo_items, dependent: :delete_all
 
   def percent_complete
     return 0 if total_items == 0
