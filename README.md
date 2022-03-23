@@ -41,7 +41,7 @@ Pré-requisitos: yarn / Ruby / Rails
 git clone git@github.com:IsraelSantos7792/todo_v360.git
 
 # entrar na pasta do projeto front end web
-cd todo-v360
+cd todo_v360
 
 # instalar dependências
 bundle install
