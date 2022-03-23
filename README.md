@@ -40,7 +40,7 @@ Pré-requisitos: yarn / Ruby / Rails
 # clonar repositório
 git clone git@github.com:IsraelSantos7792/todo_v360.git
 
-# entrar na pasta do projeto front end web
+# entrar na pasta do projeto
 cd todo_v360
 
 # instalar dependências back
