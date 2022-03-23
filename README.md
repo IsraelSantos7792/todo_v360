@@ -34,7 +34,7 @@ Pré-requisitos: yarn / Ruby / Rails
 
 ```bash
 # clonar repositório
-git clone git@github.com:IsraelSantos7792/todo-v360.git
+git clone git@github.com:IsraelSantos7792/todo_v360.git
 
 # entrar na pasta do projeto front end web
 cd todo-v360
