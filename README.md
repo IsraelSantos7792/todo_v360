@@ -43,8 +43,14 @@ git clone git@github.com:IsraelSantos7792/todo_v360.git
 # entrar na pasta do projeto front end web
 cd todo_v360
 
-# instalar dependências
+# instalar dependências back
 bundle install
+
+# habilitar cache para stimulus_reflex
+rails dev:cache
+
+# instalar dependências front
+yarn
 
 # gerar migrate
 rails db:migrate
