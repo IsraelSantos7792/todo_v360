@@ -2,7 +2,7 @@
 
 ## Sobre o projeto
 
-Aplicação desenvolvida em Ruby on rails, com frontend em bootstrap.<br>
+Aplicação desenvolvida em Ruby on rails com frontend em bootstrap.<br>
 Gerenciador de tarefas com N funcionalidades:
 - Criação de Listas
 - Criação de tarefas
