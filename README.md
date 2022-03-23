@@ -14,9 +14,9 @@ Gerenciador de tarefas com N funcionalidades:
 <br>
 
 ## Layout
-![WhatsApp Image 2022-03-23 at 14 14 58](https://user-images.githubusercontent.com/47953113/159757908-b8b5629e-e99e-4d4b-82ed-236844d603aa.jpeg)
-![WhatsApp Image 2022-03-23 at 14 15 27](https://user-images.githubusercontent.com/47953113/159758102-9e94bec3-3644-4aa9-b3d6-6524dd53dae4.jpeg)
-![WhatsApp Image 2022-03-23 at 14 15 46](https://user-images.githubusercontent.com/47953113/159758168-426ea29c-f3a2-430b-a39b-8d42d57a69cc.jpeg)
+<img src="https://user-images.githubusercontent.com/47953113/159757908-b8b5629e-e99e-4d4b-82ed-236844d603aa.jpeg" width="600">
+<img src="https://user-images.githubusercontent.com/47953113/159758102-9e94bec3-3644-4aa9-b3d6-6524dd53dae4.jpeg" width="600">
+<img src="https://user-images.githubusercontent.com/47953113/159758168-426ea29c-f3a2-430b-a39b-8d42d57a69cc.jpeg" width="600">
 
 <br>
 
